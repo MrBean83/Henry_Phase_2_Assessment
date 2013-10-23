@@ -18,6 +18,15 @@
   <title></title>
 </head>
 <body>
-  <%= yield %>
+  <div class="bar">
+    <% if @user && @user.persisted? %>
+      <a href="/logout">logout</a>
+    <% else %>
+      <a href="/login">login</a>
+    <% end %>
+  </div>
+  <div class="body">
+    <%= yield %>
+  </div>
 </body>
 </html>

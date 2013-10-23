@@ -7,3 +7,16 @@
 th {
   text-align: left;
 }
+
+.bar {
+  height: 100px;
+  background-color: black;
+  color: white;
+  padding-left: 10px;
+  padding-top:  10px;
+}
+
+a {
+  font-size: 3em;
+}
+
