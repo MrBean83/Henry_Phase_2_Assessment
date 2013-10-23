@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   validates :password, presence: true
   validates :password, confirmation: true, on: :create
 
+  #validates :name, :length => { :minimum => 3, :message => "must be at least 3 characters, fool!" }
+  #validates :password, :length => { :minimum => 6, :message => "password must be at least 6 letters, fool!" }
+  #validates :email, :uniqueness => true, :format => /.+@.+\..+/ # imperfect, but okay
+
   def password
     @password ||= BCrypt::Password.new(password_digest)
   end
