@@ -37,4 +37,3 @@ post '/create_user' do
     erb :create_user
   end
 end
-

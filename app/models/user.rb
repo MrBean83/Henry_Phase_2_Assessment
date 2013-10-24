@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
 
   #validates :name, :length => { :minimum => 3, :message => "must be at least 3 characters, fool!" }
 
+  has_many :created_events, class_name: "Event"
+  has_many :event_attendances
+  has_many :attended_events, through: :event_attendances, source: :event
+
   def password
     @password ||= BCrypt::Password.new(password_digest)
   end
