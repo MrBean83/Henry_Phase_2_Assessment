@@ -1,11 +1,9 @@
 class User < ActiveRecord::Base
-  validates :email, presence: true
-  validates :password, presence: true
+  validates :email, presence: true, :uniqueness => true, :format => /.+@.+\..+/
+  validates :password, presence: true, :length => { :minimum => 6, :message => "Passwords must be at least six characters long." }
   validates :password, confirmation: true, on: :create
 
   #validates :name, :length => { :minimum => 3, :message => "must be at least 3 characters, fool!" }
-  #validates :password, :length => { :minimum => 6, :message => "password must be at least 6 letters, fool!" }
-  #validates :email, :uniqueness => true, :format => /.+@.+\..+/ # imperfect, but okay
 
   def password
     @password ||= BCrypt::Password.new(password_digest)
