@@ -1,0 +1,12 @@
+<div class="container">
+  <form id="edit-event" action="/events/edit" method="post"> 
+    <h2> Edit Event </h2> 
+
+    Name: <input type="text" name="event[name]" value=<%= @event.name %> placeholder="Event Title" required><br>
+    Location: <input type="text" name="event[location]" value=<%= @event.location %> placeholder="Location" required><br>
+    Start Date: <input type="date" name="event[starts_at]" value=<%= @event.starts_at %> required><br>
+    End Date: <input type="date" name="event[ends_at]" value=<%= @event.ends_at %> required><br>
+    <input type="hidden" value=<%= @event.id %> name="event_id">
+    <button type="submit">Edit</button>
+  </form>
+</div>

@@ -12,9 +12,9 @@ post '/login' do
   @user = User.authenticate(params[:email], params[:password])
   if @user
     session[:user_id] = @user.id
-    redirect '/'
+    redirect '/events'
   else
-    @error = "Invalid email or password."
+    @login_error = "Invalid email or password."
     erb :login
   end
 end
@@ -32,8 +32,9 @@ post '/create_user' do
   @user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
   if @user.save
     session[:user_id] = @user.id
-    redirect '/'
+    redirect '/events'
   else
+    @create_user_error = "Invalid email or password."
     erb :create_user
   end
 end

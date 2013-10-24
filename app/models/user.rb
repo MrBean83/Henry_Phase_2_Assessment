@@ -2,8 +2,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, :uniqueness => true, :format => /.+@.+\..+/
   validates :password, presence: true, :length => { :minimum => 6, :message => "Passwords must be at least six characters long." }
   validates :password, confirmation: true, on: :create
-
-  #validates :name, :length => { :minimum => 3, :message => "must be at least 3 characters, fool!" }
+  # validates :password_digest, :presence => true
 
   has_many :created_events, class_name: "Event"
   has_many :event_attendances
